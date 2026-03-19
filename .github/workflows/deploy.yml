@@ -1,4 +1,4 @@
-name: Test CD
+name: Sync WSL repo
 
 on:
   push:
@@ -7,9 +7,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  sync-prod:
+    runs-on: self-hosted
 
     steps:
-      - name: Print message
-        run: echo "CD works 🎉"
+      - name: Sync repo in WSL
+        run: |
+          cd /home/sjiqidze/prod/SJ_testingCIDSs
+          git fetch origin
+          git checkout main
+          git reset --hard origin/main
+          git clean -fd
+          echo "WSL sync completed ✅"
