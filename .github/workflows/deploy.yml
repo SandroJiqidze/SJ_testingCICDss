@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Sync repo in WSL
         run: |
-          cd /home/sjiqidze/actions-runner
+          cd /mnt/c/Users/FB/Testing_repo_SJ/CICD/SJ_testingCICDss
           git fetch origin
           git checkout main
           git reset --hard origin/main
