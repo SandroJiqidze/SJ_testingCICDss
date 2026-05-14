@@ -1,1 +1,2 @@
 select getdate();
+-- current Date
